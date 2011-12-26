@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AchieverTurbo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+  </head>
+  <body>
+    <div data-role="page" id="task-page">
+      <div data-role="header">
+        <h1>AchieverTurbo</h1>
+        <a href="#new-task" data-role="button" class="new-task">New Task</a>
+      </div>
+
+      <div data-role="content">
+        <div class="content"></div>
+      </div>
+    </div>
+
+    <div data-role="page" id="new-task">
+      <div data-role="header">
+        <h1>New Task</h1>
+        <a href="#task-page" data-role="button" class="save-task">Save</a>
+      </div>
+      <label for="task-name">Task</label>
+      <input id="task-name"/>
+    </div>
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+    <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+    <script src="underscore.js"></script>
+    <script src="backbone-0.5.3.js"></script>
+    <script src="achiever.js"></script>
+  </body>
+</html>
