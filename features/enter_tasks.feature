@@ -1,5 +1,5 @@
-Feature: Entering a task
+Feature: Entering tasks
 
-Scenario:
+Scenario: Entering a single task
   When I enter a task named "Remember the milk"
   Then my task list contains "Remember the milk"
