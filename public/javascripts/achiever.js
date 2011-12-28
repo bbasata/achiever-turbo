@@ -30,18 +30,30 @@ window.Achiever = {};
 
   APP.Views.TaskPage = Backbone.View.extend({
     el: '#task-page',
+    events: {
+      'tap .previous-task': 'previousTask'
+    },
     initialize: function() {
       _.bindAll(this);
-      APP.Tasks.bind('add', this.render);
+      this.collection.bind('add', this.newTask);
+      this.activeTaskIndex = 0;
     },
     render: function() {
-      if (APP.Tasks.size() > 0) {
-        this.$('.content').text(APP.Tasks.first().get('name'));
+      if (!this.collection.isEmpty()) {
+        this.$('.content').text(this.collection.at(this.activeTaskIndex).get('name'));
       }
+    },
+    newTask: function() {
+      this.activeTaskIndex = this.collection.size() - 1;
+      this.render();
+    },
+    previousTask: function() {
+      if (this.activeTaskIndex > 0) {
+        this.activeTaskIndex--;
+      }
+      this.render();
+      return false;
     }
   });
-
-  new APP.Views.NewTask();
-  new APP.Views.TaskPage();
 })(window.Achiever, $);
 
