@@ -24,7 +24,7 @@ window.Achiever = {};
     },
     saveTask: function() {
       var task = new APP.Models.Task({ name: this.$('#task-name').val() });
-      APP.Tasks.add(task);
+      this.collection.add(task);
     }
   });
 
