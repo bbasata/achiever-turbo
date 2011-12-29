@@ -77,4 +77,35 @@ describe('APP.Views.TaskPage', function() {
       });
     });
   });
+  
+  describe('going to the next task', function() {
+    context('with two tasks', function() {
+      beforeEach(function() {
+        addTasks('Task One', 'Task Two');
+        taskPage.previousTask();
+      });
+
+      context('done once', function() {
+        beforeEach(function() {
+          taskPage.nextTask();
+        });
+
+        it('renders the name of the first task', function() {
+          expect(contentEl).toHaveText('Task Two');
+        });
+      });
+
+      context('done twice', function() {
+        beforeEach(function() {
+          taskPage.nextTask();
+          taskPage.nextTask();
+        });
+
+        it('renders the name of the first task', function() {
+          expect(contentEl).toHaveText('Task Two');
+        });
+      });
+    });
+  });
+
 });

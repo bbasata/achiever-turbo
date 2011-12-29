@@ -16,13 +16,7 @@ module DrivesTheTaskList
   class TaskListDriver
     include Capybara::DSL
 
-    def launch_achiever_once
-      visit '/index.html'
-      define_singleton_method(:launch_achiever_once) {}
-    end
-
     def enter_task(task)
-      launch_achiever_once
       click_link 'New Task'
       fill_in 'Task', :with => task
       click_link 'Save'
@@ -33,7 +27,11 @@ module DrivesTheTaskList
     end
 
     def open_previous_task
-      click_link 'Previous Task'
+      click_link 'previous-task'
+    end
+
+    def open_next_task
+      click_link 'next-task'
     end
   end
 

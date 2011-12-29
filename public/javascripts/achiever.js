@@ -31,7 +31,8 @@ window.Achiever = {};
   APP.Views.TaskPage = Backbone.View.extend({
     el: '#task-page',
     events: {
-      'tap .previous-task': 'previousTask'
+      'tap .previous-task': 'previousTask',
+      'tap .next-task': 'nextTask'
     },
     initialize: function() {
       _.bindAll(this);
@@ -50,6 +51,13 @@ window.Achiever = {};
     previousTask: function() {
       if (this.activeTaskIndex > 0) {
         this.activeTaskIndex--;
+      }
+      this.render();
+      return false;
+    },
+    nextTask: function() {
+      if (this.activeTaskIndex + 1 < this.collection.size()) {
+        this.activeTaskIndex++;
       }
       this.render();
       return false;

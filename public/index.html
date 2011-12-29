@@ -7,10 +7,13 @@
   </head>
   <body>
     <div data-role="page" id="task-page">
-      <div data-role="header">
+      <div data-role="header" data-position="inline">
         <h1>AchieverTurbo</h1>
         <a href="#new-task" data-role="button" class="new-task">New Task</a>
-        <a href="#" data-role="button" class="previous-task">Previous Task</a>
+        <div class="ui-btn-right">
+          <a id="previous-task" href="#" data-role="button" data-icon="arrow-l" data-iconpos="notext" data-inline="true" class="previous-task">&lt;</a>
+          <a id="next-task" href="#" data-role="button" data-icon="arrow-r" data-iconpos="notext" data-inline="true" class="next-task">&gt;</a>
+        </div>
       </div>
 
       <div data-role="content">
