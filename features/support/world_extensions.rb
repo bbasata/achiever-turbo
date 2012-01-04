@@ -3,7 +3,7 @@ module DrivesTheApplication
     include Capybara::DSL
 
     def launch
-      visit '/index.html'
+      visit '/'
     end
   end
 
